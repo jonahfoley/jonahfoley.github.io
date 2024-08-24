@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Achievements</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="sidebar-container"></div>
+        <script>
+        fetch('sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+            });
+        </script>
+        <div class="main-content">
+            <h1>Contact Details</h1>
+            <p>
+                <a href="mailto:jonahfoley@gmail.com?subject=An%20Interesting%20Proposal">Personal Email (jonahfoley@gmail.com)</a>
+            </p>
+            <p>
+                <a href="mailto:jonah.foley@nu-quantum.com?subject=An%20Interesting%20Proposal">Work Email (jonah.foley@nu-quantum.com)</a>
+            </p>
+            <p>
+                <a href="https://www.linkedin.com/in/jonahfoley/">Contact me on LinkedIn</a>
+            </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 16px;
+            text-align: left;
+            border: 1px solid #ddd; /* Add a border around the table */
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar-container"></div>
+    <script>
+        fetch('sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+            });
+    </script>
+
+    <div class="main-content">
+        <h1>My Career</h1>
+        <p>This page gives a brief overview of my industrial experience to date ... if I've remembered to update it.</p>
+        <div class="section">
+            <h2>Nu Quantum</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><strong>Role</strong></td>
+                        <td>Junior FPGA Engineer</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Date</strong></td>
+                        <td>Nov. 2023 - Present</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>I currently reside at Nu Quantum, a Cambridge based startup working on building quantum networks as a path towards scalable quantum computing. Within Nu Quantum I form one part of the Control Team which designs custom FPGA solutions for signal generation, experimental control and time synchronisation. At Nu Quantum we are part of the <a href="https://www.white-rabbit.tech/">white rabbit alliance</a>, which we actively contribute to. 
+            </p>
+        </div>
+        <div class="section">            
+            <h2>Jump Trading</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><strong>Role</strong></td>
+                        <td>Hardware Engineer Intern</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Date</strong></td>
+                        <td>Summer 2023 (10 weeks)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>During my 10 weeks at Jump I worked on designing network ingress components for FPGA devices. This involved developing an in-depth understanding of the existing codebase and designing new modules to strict timing constraints, requiring knowledge of the UDP network stack and consideration for the wider system architecture. In this process I gained experience deploying code into a production environment, developing an appreciation for continuous integration techniques, and learning new approaches to hardware simulation in Python. With supplemental training on financial fundamentals, this internship gave me an appreciation for the high intensity demands of HFT, from which I have developed a results-oriented mindset.</p>
+        </div>
+        <div class="section">
+            <h2>Plextek</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><strong>Role</strong></td>
+                        <td>FPGA Engineer Intern</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Date</strong></td>
+                        <td>Summer 2021 (10 weeks), Summer 2022 (12 weeks)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+            This 10-week internship was my first step into commercial engineering. I was tasked with, and successfully achieved, the development of an FPGA-based (MAX-10) digital system which could compute the real-time Fourier transform of audio signals and transmit the result to a PC. UART was used as a serial interface to a PC where I built a multi-threaded spectrum analyser application in OpenGL that plotted the real-time power spectrum of the FFT. This project required understanding and selecting an appropriate FFT algorithm and then realising that using VHDL, drawing upon my digital design skillset.
+            </p>
+            <p>
+            During my second internship at Plextek I was tasked with carrying out a proof-of-concept study into a component-based FPGA framework called OpenCPI and using it to implement a radio jammer. Using the framework, I successfully implemented a proof-of-concept design targeting the ADRV9361 platform, which utilised the FFT core I had built in my first internship here and demonstrated it performing jamming of PMR handsets (walkie-talkies). The FPGA operated in parallel to an embedded ARM processor which communicated to a PC over UDP to control configuration of the on-board DAC for synthesis of tones at the target frequency, utilising a custom JSON-based message parsing system atop a Qt GUI.
+            </p>
+        </div>
+    </div>    
+</body>
+</html>

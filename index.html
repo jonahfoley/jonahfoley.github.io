@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio with Sidebar</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            box-sizing: border-box;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            height: 100vh;
+            position: fixed;
+            box-sizing: border-box;
+        }
+        .sidebar a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 0;
+            margin: 5px 0;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .main-content {
+            margin-left: 250px; /* Matches the sidebar width */
+            padding: 20px;
+            background-color: #f4f4f4;
+            width: calc(100% - 250px); /* Full width minus sidebar */
+            box-sizing: border-box; /* Includes padding in width calculation */
+        }
+        .summary-section {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            /* border-top: 1px solid #ddd; */
+        }
+        .summary-section h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="sidebar-container"></div>
+        <script>
+        fetch('sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+            });
+        </script>
+        <div class="main-content">
+            <h1>Jonah Foley - Electronic Engineer</h1>
+            <p>This is the home page. Use the sidebar to navigate to other sections.</p>
+            <div class="summary-section">
+                <h2>About Me</h2>
+                <p>I am an electronic engineer specialising in FPGA design for high performance applications. I have a masters degree in Electronic Engineer from the University of Southampton and currently work for Nu Quantum in the field of Quantum Networks.</p>
+                <p>
+                    My CV can be downloaded <a href="misc/CV_Jonah_Foley_11_10_2023.pdf" download="CV_Jonah_Foley">here</a>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

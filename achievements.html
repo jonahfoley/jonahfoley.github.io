@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="sidebar-container"></div>
+    <script>
+        fetch('sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+            });
+    </script>
+
+    <div class="main-content">
+        <h1>Achievements</h1>
+
+        <div class="section">
+            <h2>Techworks Young Engineer of the Year 2023</h2>
+            <p>
+                <a href="https://www.techworks.org.uk/about-the-techworks-awards-2023">Press Release</a>
+            </p>
+            <p>Awarding Body: Techworks</p>
+            <p>I received this award to recognise my engineering efforts in the early stage of my career. In particular, for my outreach work as part of the <a href="https://www.ukesf.org/"> UKSEF</a>, my academic success and internship experience at prolific high frequency trading firm, Jump Trading.</p>
+        </div>
+
+        <div class="section">
+            <h2>Special Zepler Prize 2023</h2>
+            <p>Awarding Body: University of Southampton</p>
+            <p>Awarded for receiving the highest mark across combined MSc and MEng degrees in part IV Electronic Engineering at the University of Southampton.</p>
+        </div>
+
+        <div class="section">
+            <h2>Zepler Prize 2022</h2>
+            <p>Awarding Body: University of Southampton</p>
+            <p>Awarded for receiving the highest mark across combined BSc and MEng degrees in part III Electronic Engineering at the University of Southampton.</p>
+        </div>
+
+        <div class="section">
+            <h2>Chelton Prize 2022</h2>
+            <p>Awarding Body: University of Southampton</p>
+            <p>Awarded for receiving the highest part III project (dissertation) mark in the area of 'radio, wireless or mobile communications' at the University of Southampton.</p>
+        </div>
+
+    </div>  
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Achievements</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 10px;
+            padding: 20px;
+            justify-content: center;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.5);
+        }
+        .gallery-item figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover figcaption {
+            opacity: 1;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="sidebar-container"></div>
+        <script>
+        fetch('sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+            });
+        </script>
+        <div class="main-content">
+            <h1>Personal</h1>
+            <div class="section">
+                <h2>Photography</h2>
+                <p>A collection of my photography. I primarily shoot with a Canon AE-1 P</p>
+                <div class="gallery" id="gallery"></div>
+            </div>
+            <div class="section">
+                <h2>Music</h2>
+                <p>A selection of my favourite albums</p>
+                <table id="albums-table">
+                    <thead>
+                        <tr>
+                            <th>Artist</th>
+                            <th>Album</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be inserted here by JavaScript --></tbody>
+                </table>
+            </div>
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const galleryContainer = document.getElementById('gallery');
+                const numberOfImages = 13; // Adjust based on the number of images you have
+                
+                for (let i = 0; i < numberOfImages; i++) {
+                    const imageNumber = i; 
+                    const imageSrc = `photos/(${imageNumber}).png`; 
+                    
+                    // Create figure element
+                    const figure = document.createElement('figure');
+                    figure.className = 'gallery-item';
+                    
+                    // Create image element
+                    const img = document.createElement('img');
+                    img.src = imageSrc;
+                    
+                    // Append img and figcaption to figure
+                    figure.appendChild(img);
+                    
+                    // Append figure to gallery container
+                    galleryContainer.appendChild(figure);
+                }
+            });
+            </script>
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const albums = [
+                    ["Milton Nascimento, Lo Borges", "Clube Da Esquina"],
+                    ["L'imperatrice", "Tako Tsubo"],
+                    ["Tyler the Creator", "Flower Boy"],
+                    ["Tyler the Creator", "Igor"],
+                    ["Weyes Blood", "Titanic Rising"],
+                    ["Kendrick Lamar", "To Pimp a Butterfly"],
+                    ["Charli XCX", "Brat"],
+                    ["Jockstrap", "Love is the key to the city"],
+                    ["Lomelda", "Thx"],
+                    ["Stereolab", "Dots and Loops"],
+                    ["Madvillain", "Madvillainy"],
+                    ["Frank Ocean", "Blond"]
+                ];
+
+                const tableBody = document.querySelector("#albums-table tbody");
+
+                albums.forEach(([artist, album]) => {
+                    // Create a new row
+                    const row = document.createElement("tr");
+
+                    // Create cells for artist and album
+                    const artistCell = document.createElement("td");
+                    artistCell.textContent = artist;
+
+                    const albumCell = document.createElement("td");
+                    albumCell.textContent = album;
+
+                    // Append cells to the row
+                    row.appendChild(artistCell);
+                    row.appendChild(albumCell);
+
+                    // Append row to the table body
+                    tableBody.appendChild(row);
+                });
+            });
+            </script>
+        </div>
+    </body>
+</html>
